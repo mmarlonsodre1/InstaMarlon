@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import InputComentario from './InputComentario'
 import Likes from './Likes'
@@ -24,14 +25,15 @@ export default class Post extends Component{
   }
 
   render () {
-    const { foto, likeCallback, comentarioCallback } = this.props;
+    const { foto, likeCallback, comentarioCallback , verPerfilCallback} = this.props;
       return (
           <View>
-              <View style={styles.cabecalho}>
+              <TouchableOpacity style={styles.cabecalho}
+                onPress={() => verPerfilCallback(foto.id)}>
                   <Image source={{uri: foto.urlPerfil}}
                       style={styles.fotoPerfil}/>
                   <Text>{foto.loginUsuario}</Text>
-              </View>
+              </TouchableOpacity>
               <Image source={{uri: foto.urlFoto}}
                       style={styles.fotoFeed}/>
 

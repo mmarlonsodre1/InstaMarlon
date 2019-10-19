@@ -9,6 +9,7 @@ import {
   AsyncStorage,
 } from 'react-native';
 import { Navigation } from "react-native-navigation";
+import LoadingModal from '../components/LoadingModal'
 
 const width = Dimensions.get('screen').width;
 
@@ -18,7 +19,8 @@ export default class Login extends Component{
         this.state = {
             usuario:'',
             senha:'',
-            mensagem: ''
+            mensagem: '',
+            isLoading: false
         }
     }
     
@@ -36,6 +38,7 @@ export default class Login extends Component{
             })
         }
 
+        this.setState({isLoading:true});
         fetch(uri, requestInfo)
             .then(response => {
                 if(response.ok) return response.text();
@@ -63,11 +66,13 @@ export default class Login extends Component{
             })
             .catch(e => this.setState({mensagem: e.message})
         )
+        this.setState({isLoading:false});
     }
 
   render () {
       return (
           <View style={styles.container}>
+              <LoadingModal isLoading={this.state.isLoading}/>
               <Text style={styles.titulo}>InstaMarlon</Text>
 
               <View style={styles.form}>

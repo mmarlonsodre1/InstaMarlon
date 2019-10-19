@@ -31,7 +31,13 @@ local.properties
 
 # node.js
 #
-node_modules/
+!node_modules/
+node_modules/*
+!node_modules/react-native-navigation/
+node_modules/react-native-navigation/*
+!node_modules/react-native-navigation/lib/
+node_modules/react-native-navigation/lib/*
+!node_modules/react-native-navigation/lib/android/
 npm-debug.log
 yarn-error.log
 

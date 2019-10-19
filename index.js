@@ -1,8 +1,10 @@
 import { Navigation } from "react-native-navigation";
 import Login from "./src/screens/Login";
 import Feed from "./src/components/Feed"
-  Navigation.registerComponent(`Login`, () => Login);
-  Navigation.registerComponent(`Feed`, () => Feed);
+
+Navigation.registerComponent(`Login`, () => Login);
+Navigation.registerComponent(`Feed`, () => Feed);
+Navigation.registerComponent(`Usuario`, () => Feed);
 
   // Navigation.startSingleScreenApp({
   //   screen: {
@@ -22,7 +24,7 @@ import Feed from "./src/components/Feed"
                 visible: false,
               }
             }
-          }, 
+          },
         }], 
       }
     }
